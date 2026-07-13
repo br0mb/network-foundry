@@ -1,0 +1,21 @@
+# Obsidian
+.obsidian/
+*.obsidian
+workspace.json
+workspace-mobile.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Environment
+.env
+*.env
