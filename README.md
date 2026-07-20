@@ -45,6 +45,14 @@ Three specialized agents inspired by Cisco's AgenticOps operating model:
 - **Full audit logging** — all actions logged to syslog, SSH sessions logged on target devices
 - **Disposable infrastructure** — VM can be snapshotted, backed up, and rebuilt in minutes
 
+### Sysadmin Practice Workflow
+
+The lab includes a structured practice environment — a "dojo" — where theoretical knowledge from degrees and certifications is applied through hands-on daily tasks. A Python script generates daily tickets via cron, each containing a morning health checkup and an assigned task modeled on real Systems Administrator and MSP IT Engineer job descriptions. Tasks follow a 4-week rotation covering user management, DNS, file services, security audits, DHCP, print servers, backups, VPN management, patch management, server migration, certificate authority, security hardening, disaster recovery, and automation.
+
+The workflow also includes 10 progressive independent lab tasks (easy to hard) and a 130-question readiness assessment covering subnetting, networking, Active Directory, Linux administration, VPN fundamentals, and troubleshooting scenarios.
+
+See `docs/sysadmin-workflow/README.md` for the full workflow documentation.
+
 ## Repository Structure
 
 ```
@@ -53,8 +61,8 @@ network-foundry/
 ├── LICENSE                            # MIT License
 ├── docs/
 │   ├── network-design/                # Network topology and architecture
-│   │   ├── network-reference.md      # Complete network documentation
-│   │   └── subnet-allocation.md      # VLAN and subnet design
+│   │   ├── network-reference.md       # Complete network documentation
+│   │   └── subnet-allocation.md       # VLAN and subnet design
 │   ├── device-configs/                # Cisco device configurations
 │   │   ├── r1-core-router.md          # R1 running config
 │   │   └── sw1-core-switch.md         # SW-1 running config
@@ -63,14 +71,32 @@ network-foundry/
 │   │   ├── zabbix-installation.md     # Zabbix monitoring setup
 │   │   └── snmp-configuration.md      # SNMP configuration guide
 │   ├── troubleshooting/               # Troubleshooting case studies
-│   │   ├── wazuh-dashboard-access.md  # Windows firewall + cert troubleshooting
+│   │   ├── wazuh-dashboard-access.md  # Windows firewall + cert                                                     troubleshooting
 │   │   ├── vm-ip-instability.md       # DHCP/static IP conflict resolution
 │   │   └── dns-setup.md               # DNS record creation and resolution
 │   └── ai-agents/                     # AI agent architecture and design
 │       ├── agent-architecture.md      # Overview of the three-agent system
 │       └── jump-box-architecture.md   # Production-safe deployment model
+│   └── sysadmin-workflow/             # Sysadmin practice workflow (the                                             "dojo")
+│       ├── README.md                 # Workflow concept and overview
+│       ├── daily-ticket-system.md    # Automated ticket generation system
+│       ├── independent-lab-tasks.md  # 10 progressive tasks (easy to hard)
+│       ├── readiness-assessment.md   # 130-question self-test
+│       ├── build-reports/            # Infrastructure build documentation
+│       │   ├── wireguard-vpn.md      # VPN build with troubleshooting
+│       │   ├── nat-gateway.md        # NAT gateway build
+│       │   ├── dhcp-server-relay.md  # DHCP server + router relay
+│       │   ├── domain-join-linux.md  # Linux AD domain join
+│       │   ├── cups-print-server.md  # CUPS virtual PDF printer
+│       │   └── samba-file-shares.md  # Department shares + home drives
+│       ├── reference-docs/           # Runbook-style reference                                                     documentation
+│       │   ├── samba-ad-command-reference.md  # AD commands with Windows                                                    equivalents
+│       │   ├── domain-join-packages.md        # Package explanations
+│       │   └── wireguard-guide.md             # Full VPN build guide
+│       └── scripts/
+│           └── generate_daily_ticket.py       # Ticket generation script
 ├── scripts/                           # Python collection scripts
-│   ├── wazuh-collect.py               # Wazuh API + OpenSearch data collection
+│   ├── wazuh-collect.py               # Wazuh API + OpenSearch data                                                 collection
 │   ├── network-collect.py             # Cisco SSH health check collection
 │   └── pwdreset-wrapper.sh            # Restricted password reset wrapper
 └── setup/
@@ -95,6 +121,12 @@ All credentials, passwords, API keys, personal names, and email addresses have b
 | Identity Management | Samba AD, Kerberos, LDAP, least-privilege design, sudoers lockdown, audit logging |
 | AI Agent Development | Hermes Agent framework, governed execution, NOC workflow simulation, helpdesk automation |
 | Documentation | Obsidian vault, wikilinks, troubleshooting logs, architectural diagrams |
+| VPN | WireGuard, key-based authentication, split tunneling, NAT traversal, firewall rules |
+| DHCP | ISC DHCP server, DHCP relay (ip helper), scope configuration, lease management |
+| File Services | Samba shares, group-based permissions, ACLs, home drives |
+| Print Server | CUPS, virtual PDF printer, web management, client printing |
+| Linux Administration | netplan, systemd-resolved, iptables, UFW, package management |
+| Troubleshooting | Service diagnosis, log analysis, route debugging, DNS isolation |
 
 ## Related Concepts
 
@@ -112,3 +144,5 @@ Network engineer and CCNP candidate with a BS in Cybersecurity (Summa Cum Laude)
 ## AI Assistance Disclosure
 
 All network infrastructure, device configurations, security architecture, and troubleshooting were designed and implemented by the author. AI assistance was used to co-author documentation and generate collection scripts based on the author's specifications and architectural decisions. The AI agent orchestration layer (monitoring agents, password reset agent, jump box architecture) was designed by the author with AI-assisted implementation.
+
+The sysadmin practice workflow was designed by the author to bridge the gap between theoretical knowledge and hands-on execution. Daily tasks, build reports, and reference documentation were authored by the author with AI-assisted co-authoring. The ticket generation script was designed by the author with AI-assisted implementation. All infrastructure was built, configured, and troubleshooted by the author.
